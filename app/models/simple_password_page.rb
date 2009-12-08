@@ -21,6 +21,11 @@ class SimplePasswordPage < Page
 
   def config
     string = render_part(:config)
+    if( has_or_inherits_part?(:config) )
+      self.ancestors.any? { |page| 
+        string = page.render_part(:config) if page.has_part?(:config)
+        }
+    end
     @config ||= string.blank? ? {} : YAML::load(string)
   end
   
