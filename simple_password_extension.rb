@@ -5,7 +5,7 @@ require_dependency 'site_controller_ext'
 class SimplePasswordExtension < Radiant::Extension
   version "0.1"
   description %{
-    A "Simple Password Page" page protects contents with HTTP Basic 
+    A "Simple Password Page" page protects contents with HTTP Basic
     Authentication. The user name, password, and realm are set up in
     the "config" page part with the following YAML format:
 
@@ -13,9 +13,9 @@ class SimplePasswordExtension < Radiant::Extension
     password: secret
     realm: kingdom
 
-    You will need to quote strings with ambiguous meaning in YAML including 
-    (not limited) to: "!abc", "foo:bar", "null", "true", "false", "yes", 
-    "no", "on", "off" (see http://yaml.org/spec/1.2/#id2588633 and 
+    You will need to quote strings with ambiguous meaning in YAML including
+    (not limited) to: "!abc", "foo:bar", "null", "true", "false", "yes",
+    "no", "on", "off" (see http://yaml.org/spec/1.2/#id2588633 and
     http://en.wikipedia.org/wiki/YAML#Pitfalls_and_implementation_defects)
 
     SimplePasswordExtension depends on the authenticate_with_http_basic and
@@ -28,8 +28,8 @@ class SimplePasswordExtension < Radiant::Extension
     SiteController.send :include, SimplePassword::SiteControllerExt
     SimplePasswordPage
   end
-  
+
   def deactivate
   end
-  
+
 end

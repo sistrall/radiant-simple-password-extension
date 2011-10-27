@@ -6,11 +6,11 @@ module SimplePassword
         alias_method_chain :process_page, :simple_password
       }
     end
-  
+
     module InstanceMethods
-    
+
       protected
-      
+
       # Process page keeping in count of the presence of a SimplePasswordPage in the ancestors of che currently processed page
       def process_page_with_simple_password(page)
         if simple_password_page = ([page] + page.ancestors).find { |p| p.is_a?(SimplePasswordPage) }
